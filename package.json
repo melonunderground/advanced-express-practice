@@ -1,7 +1,7 @@
 {
   "name": "advanced-server-practice",
   "version": "1.0.0",
-  "description": "",
+  "description": "# Windows users - Make sure you remove single quotes from the package.json # Setup * fork, clone, npm install, npm start * a web page has been created for you so don't worry about that * your job is to build the server  * the only code you need to change is in the `/server` folder",
   "main": "index.js",
   "scripts": {
     "lint": "eslint src",
@@ -37,7 +37,7 @@
     "body-parser": "^1.17.1",
     "dotenv": "^2.0.0",
     "express": "^4.14.0",
-    "mongoose": "^4.6.8",
+    "mongoose": "^4.13.15",
     "react": "^15.5.4",
     "react-dom": "^15.5.4",
     "react-redux": "^5.0.4",
@@ -47,5 +47,13 @@
     "redux-thunk": "^2.2.0",
     "whatwg-fetch": "^2.0.3"
   },
-  "proxy": "http://localhost:3001"
+  "proxy": "http://localhost:3001",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/melonunderground/advanced-express-practice.git"
+  },
+  "bugs": {
+    "url": "https://github.com/melonunderground/advanced-express-practice/issues"
+  },
+  "homepage": "https://github.com/melonunderground/advanced-express-practice#readme"
 }

@@ -1,24 +1,30 @@
-let products = require("../products");
-
+const ProductModel = require("../models/ProductModel");
 
 module.exports.list =  function list(request, response) {
-    return response.json(products);
-   }
+    ProductModel.find({}).exec()
+    .then(product => {
+        return response.json(product);
+    });
+}
 
-   module.exports.show =  function show(request, response) {
-        let productId = request.params.id;
-        let foundProduct = products.find((product) => {
-            return (product._id == productId)
-     });
-            return response.json(foundProduct)
-    }
-   
-   module.exports.create =  function create(request, response) {
-    request.body._id = products.length + 1;
-    let newProduct = request.body;
-    products.push(newProduct);
-    return response.json(newProduct);
-   }
+module.exports.show =  function show(request, response) {
+    ProductModel.findById(request.params.id).exec()
+    .then(product => {
+        return response.json(product)
+    })
+}
+
+module.exports.create =  function create(request, response) {
+    const newProduct = new ProductModel({
+        name: request.body.name,
+        description: request.body.description
+    });
+   newProduct.save()
+   .then(savedProduct => {
+       return response.json(savedProduct)
+   });
+
+}
 
 //    module.exports.update =  function update(request, response) {
 //     return response.json({theId: request.params.id});

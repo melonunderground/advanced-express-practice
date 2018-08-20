@@ -1,5 +1,8 @@
 let express = require("express");
 let bodyParser = require("body-parser");
+let mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+mongoose.connect("mongodb://dane:Blindmelon1@ds221292.mlab.com:21292/expresspractice");
 
 let CommentRoutes = require("./routes/CommentRoutes");
 let ContactRoutes = require("./routes/ContactRoutes");
