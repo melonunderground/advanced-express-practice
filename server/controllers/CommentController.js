@@ -15,9 +15,7 @@ module.exports.show =  function show(request, response) {
 }
 
 module.exports.create =  function create(request, response) {
-    const newComment = new CommentModel({
-        body:request.body.body
-    });
+    const newComment = new CommentModel(request.body)
    newComment.save()
    .then(savedComment => {
        return response.json(savedComment)
